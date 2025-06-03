@@ -1,0 +1,3 @@
+C:\Users\MUZAKI\Desktop\ConsoleApplication2\x64\Debug\raylib.dll
+C:\Users\MUZAKI\Desktop\ConsoleApplication2\x64\Debug\glfw3.dll
+C:\Users\MUZAKI\Desktop\ConsoleApplication2\ConsoleA.62e8c6d2\x64\Debug\ConsoleA.0AFBC08A.Up2Date
