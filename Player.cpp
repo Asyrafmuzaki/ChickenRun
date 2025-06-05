@@ -1,34 +1,67 @@
 #include "Player.h"
 
-Player::Player()
-    : rect{ 50, 300, 40, 40 }, velocity{ 0, 0 }, isJumping(false), jumpHeight(9.0f) {
+Player::Player(){
+    velocityY = 0;
+    position = { 100, 250 };
+    isJumping = false;
+    jumpHeight = 14.0f;
+    texture = LoadTexture("Assets/Spritepitikjalan.png");
+    frameWidth = texture.width / 3;
+    frameHeight = texture.height;
+    currentFrame = 0;
+    frameCounter = 0;
+    frameSpeed = 8;
 }
 
 void Player::Update() {
+    if (!isJumping) {
+        frameCounter++;
+        if (frameCounter >= (60 / frameSpeed)) {
+            frameCounter = 0;
+            currentFrame++;
+            if (currentFrame > 2) currentFrame = 0;
+        }
+    }
+
     if (isJumping) {
-        velocity.y += 0.3f; // gravity
-        rect.y += velocity.y;
-        if (rect.y >= 300) {
-            rect.y = 300;
+        velocityY += 0.40f; // gravity
+        position.y += velocityY;
+        if (position.y >= 250) {
+            position.y = 250;
             isJumping = false;
-            velocity.y = 0;
+            velocityY = 0;
         }
     }
 }
 
 void Player::Draw() {
-    DrawRectangleRec(rect, BLACK);
+    Rectangle source = { static_cast<float>(currentFrame * frameWidth), 0, static_cast<float>(frameWidth), static_cast<float>(frameHeight) };
+    Rectangle dest = { position.x, position.y, static_cast<float>(frameWidth), static_cast<float>(frameHeight) };
+    DrawTextureRec(texture, source, position, WHITE);
+    //DrawRectangleLinesEx(GetRect(), 2, RED);
 }
 
+
 void Player::Reset() {
-    rect.y = 300;
-    velocity = { 0, 0 };
+    position.y = 250;
+    velocityY = 0;
     isJumping = false;
+    currentFrame = 0;
+    frameCounter = 0;
 }
 
 Rectangle Player::GetRect() const {
-    return rect;
+    float paddingX = 30.0f; 
+    float paddingY = 38.0f;  
+
+    return {
+        position.x + paddingX,
+        position.y + paddingY,
+        static_cast<float>(frameWidth) - 2 * paddingX,
+        static_cast<float>(frameHeight) - 2 * paddingY
+    };
 }
+
 
 bool Player::IsJumping() const {
     return isJumping;
@@ -36,7 +69,7 @@ bool Player::IsJumping() const {
 
 void Player::StartJump() {
     if (!isJumping) {
-        velocity.y = -jumpHeight;
+        velocityY = -jumpHeight;
         isJumping = true;
     }
 }

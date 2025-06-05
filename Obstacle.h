@@ -6,9 +6,9 @@
 
 class Obstacle {
 public:
-    Obstacle(); // default constructor
+    Obstacle();
     Obstacle(float x, float y, float width, float height);
-
+    ~Obstacle();
     void Update();
     void Draw();
     void Reset();
@@ -16,7 +16,12 @@ public:
 
 private:
     Rectangle rect;
+    Vector2 position;
     bool active;
+
+    Texture2D texture;
+    Rectangle sourceRect;
+    float scale;
 };
 
 #endif

@@ -48,6 +48,13 @@
     <ClInclude Include="Score.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\background.png" />
+    <Image Include="Assets\obstacle.png" />
+    <Image Include="Assets\pitek.png" />
+    <Image Include="Assets\Spritepitikjalan.png" />
+    <Image Include="Assets\tanah.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

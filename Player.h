@@ -4,23 +4,28 @@
 #include "raylib.h"
 
 class Player {
-private:
-    Rectangle rect;
-    Vector2 velocity;
-    bool isJumping;
-    float jumpHeight;
+    private:
+        Vector2 position;
+        float velocityY;
+        bool isJumping;
+        float jumpHeight;
 
-public:
-    Player();
+        //Animation
+        Texture2D texture;
+        int frameWidth;
+        int frameHeight;
+        int currentFrame;
+        int frameCounter;
+        int frameSpeed;
+    public:
+        Player();
+        void Update();
+        void Draw();
+        void Reset();
+        Rectangle GetRect() const;
 
-    void Update();
-    void Draw();
-    void Reset();
-
-    Rectangle GetRect() const;
-
-    bool IsJumping() const;
-    void StartJump();
+        bool IsJumping() const;
+        void StartJump();
 };
 
 #endif

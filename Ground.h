@@ -6,5 +6,6 @@ public:
     Ground();
     void Draw() const;
 private:
-    Rectangle rect;
+    Texture2D bgTexture;
+    Texture2D groundTexture;
 };
