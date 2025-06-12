@@ -16,7 +16,7 @@ GameState GameManager::GetState() const {
 }
 
 void GameManager::Run() {
-    InitWindow(800, 450, "Dino Runner");
+    InitWindow(800, 450, "Chicken Run");
     SetTargetFPS(60);
 
     Game& game = Game::GetInstance();
