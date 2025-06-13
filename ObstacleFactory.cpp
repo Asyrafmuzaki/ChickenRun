@@ -6,6 +6,6 @@ Obstacle* ObstacleFactory::CreateObstacle(const std::string& type) {
     }
     else if (type == "flying") {
         return new Obstacle(800, 250, 20, 20);
-    }
+	}
     return nullptr;
 }

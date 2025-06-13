@@ -15,6 +15,7 @@ void Game::Init() {
     obstacles.clear();
     obstacles.push_back(std::unique_ptr<Obstacle>(ObstacleFactory::CreateObstacle("ground")));
     jumpCommand = std::make_unique<JumpCommand>(&player);
+
     inputHandler.BindKey(KEY_SPACE, jumpCommand.get());
     pauseCommand = std::make_unique<PauseCommand>();
     inputHandler.BindKey(KEY_P, pauseCommand.get());
@@ -22,7 +23,6 @@ void Game::Init() {
 
 void Game::Update() {
     inputHandler.HandleInput();
-    player.Update();
     player.Update();
     score.Update();
 
@@ -33,8 +33,10 @@ void Game::Update() {
         }
     }
 
-    if (obstacles.back()->GetRect().x < 400) {
-        obstacles.push_back(std::unique_ptr<Obstacle>(ObstacleFactory::CreateObstacle("ground")));
+    if (obstacles.back()->GetRect().x < 0) {
+		obstacles.pop_back();
+		int rng = GetRandomValue(0,1); // Randomly choose between ground or flying obstacle
+        obstacles.push_back(std::unique_ptr<Obstacle>(ObstacleFactory::CreateObstacle(rng == 0 ? "flying" : "ground")));
     }
 }
 

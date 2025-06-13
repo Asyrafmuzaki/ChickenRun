@@ -24,4 +24,4 @@ private:
     float scale;
 };
 
-#endif
+#endif;
