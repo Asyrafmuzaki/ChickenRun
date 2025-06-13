@@ -96,4 +96,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\obstacle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\pitek.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\tanah.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Desktop\dino\Spritepitikjalan.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

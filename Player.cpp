@@ -24,7 +24,7 @@ void Player::Update() {
     }
 
     if (isJumping) {
-        velocityY += 0.40f; // gravity
+        velocityY += 0.70f; // gravity
         position.y += velocityY;
         if (position.y >= 250) {
             position.y = 250;
